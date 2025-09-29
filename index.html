@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nagris App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎥 Nagris App</h1>
+
+  <!-- 🔐 Auth Section -->
+  <div id="auth-section">
+    <h2>Register</h2>
+    <input type="text" id="reg-username" placeholder="Username"><br>
+    <input type="email" id="reg-email" placeholder="Email"><br>
+    <input type="password" id="reg-password" placeholder="Password"><br>
+    <button id="register-btn">Register</button>
+
+    <h2>Login</h2>
+    <input type="email" id="login-email" placeholder="Email"><br>
+    <input type="password" id="login-password" placeholder="Password"><br>
+    <button id="login-btn">Login</button>
+  </div>
+
+  <hr>
+
+<!-- 🔐 User Info -->
+<div id="user-info" style="margin-bottom: 20px; display:flex; align-items:center; gap:10px;">
+  <img id="current-user-avatar" src="https://placehold.co/100x100" alt="User Avatar" style="width:35px; height:35px; border-radius:50%; display:none;">
+  <span id="current-user">Not logged in</span>
+  <button id="logout-btn" style="display:none;">Logout</button>
+</div>
+
+  <!-- ⬆️ Upload Form -->
+  <div id="upload-form">
+    <h2>Upload a New Video</h2>
+    <input type="text" id="title" placeholder="Video Title">
+    <input type="text" id="src" placeholder="Video Source (URL or /videos/video.mp4)">
+    <button id="upload-btn">⬆️ Upload</button>
+  </div>
+
+  <hr>
+
+  <!-- 📺 Tabs -->
+  <div class="tabs">
+    <button id="feed-tab" class="tab active">Feed</button>
+    <button id="my-videos-tab" class="tab">My Videos</button>
+    <button id="notifications-tab" class="tab">
+      Notifications <span id="notif-badge" class="badge hidden">0</span>
+    </button>
+  </div>
+
+ <!-- Feeds -->
+<div id="video-feed" class="feed-container"></div>
+
+<!-- My Videos Tab -->
+<div id="my-videos" style="display:none;">
+  <h2>My Videos</h2>
+  <div id="my-videos-grid" class="profile-videos"></div>
+</div>
+
+<!-- Notifications Tab -->
+<div id="notifications" style="display:none;"></div>
+
+  <!-- 👤 Profile Section -->
+  <div id="profile">
+    <div id="profile-header">
+      <img id="profile-avatar" src="https://placehold.co/100x100" alt="Avatar">
+      <h2 id="profile-username">@username</h2>
+      <p id="profile-bio">This is my bio...</p>
+      <div class="profile-stats">
+        <span><strong id="followers-count">0</strong> Followers</span>
+        <span><strong id="following-count">0</strong> Following</span>
+      </div>
+    </div>
+
+    <!-- 🔎 Profile Search -->
+    <div class="row" style="margin:10px 0; gap:8px;">
+      <input type="text" id="profile-search" placeholder="Enter username">
+      <button id="search-profile-btn">Search</button>
+    </div>
+
+    <p id="profile-info">Search a username to view profile…</p>
+ 
+  <!-- Follower/Following counters for lists -->
+    <div style="display:none;">
+      <span id="followers-count-list">0</span>
+      <span id="following-count-list">0</span>
+    </div> 
+
+    <!-- Follow / Unfollow -->
+    <div class="row" style="gap:8px; margin:8px 0;">
+      <button id="follow-btn" style="display:none;">Follow</button>
+      <button id="unfollow-btn" style="display:none;">Unfollow</button>
+    </div>
+
+    <!-- Edit Profile (only visible for logged-in user on their own profile) -->
+<div id="edit-profile">
+  <h3>✏️ Edit Profile</h3>
+  
+  <!-- Avatar preview -->
+  <img id="avatar-preview" src="https://placehold.co/100x100" alt="Avatar Preview" style="width:80px; height:80px; border-radius:50%; margin-bottom:10px; border:1px solid #ccc;">
+  <input type="text" id="edit-bio" placeholder="Update your bio...">
+  <input type="text" id="edit-avatar" placeholder="Avatar image URL">
+  <button id="save-profile-btn">Save Changes</button>
+</div>
+
+    <!-- User Videos -->
+    <h3>Videos</h3>
+    <div id="profile-videos" class="video-grid"></div>
+  </div>
+
+  <hr>
+  <!-- 🔔 Notifications -->
+  <h2>🔔 Notifications</h2>
+
+  <!-- 🔔 Notification container -->
+  <div id="notification-container"></div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
